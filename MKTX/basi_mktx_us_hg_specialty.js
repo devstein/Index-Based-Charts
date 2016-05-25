@@ -47,8 +47,7 @@ function basi_mktx_us_hg_specialty_chart() {
                 opposite: false,
                 //set background grid line width
                 gridLineWidth: 1
-            }
-        }],
+            }],
             //stylize the tooltip 
             tooltip: {
                 pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b><br/>',
