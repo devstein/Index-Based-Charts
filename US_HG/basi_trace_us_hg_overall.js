@@ -175,8 +175,8 @@ function basi_trace_us_hg_overall_chart() {
         }
     });
 
-    $('.chart_container').toggle(false);
+    // $('.chart_container').toggle(false);
     basi_trace_us_hg_overall_chart();
-    $('#basi_trace_us_hg_overall_container').toggle(true);
-    auto_assign_toggle_chart_buttons();
+    // $('#basi_trace_us_hg_overall_container').toggle(true);
+    // auto_assign_toggle_chart_buttons();
 })();

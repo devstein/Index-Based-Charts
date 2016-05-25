@@ -147,8 +147,8 @@ function basi_mktx_us_hg_size_chart() {
         }
     });
 
-    $('.chart_container').toggle(false);
+    // $('.chart_container').toggle(false);
     basi_mktx_us_hg_size_chart();
-    $('#basi_mktx_us_hg_size_container').toggle(true);
-    auto_assign_toggle_chart_buttons();
+    // $('#basi_mktx_us_hg_size_container').toggle(true);
+    // auto_assign_toggle_chart_buttons();
 })();
