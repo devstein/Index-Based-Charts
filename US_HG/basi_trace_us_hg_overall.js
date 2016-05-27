@@ -52,7 +52,7 @@ function basi_trace_us_hg_overall_chart() {
 				title: {
 					text: 'VIX',
 					style: {
-                        color: '#DBBB33',
+                        color: '#639741',
                         fontWeight: 'bold'
 					}
 				},
@@ -67,7 +67,7 @@ function basi_trace_us_hg_overall_chart() {
 				title: {
 					text: 'CDX.IG',
 					style: {
-                        color: '#43C5F3',
+                        color: '#357895',
                         fontWeight: 'bold'
 					}
 				},
@@ -95,7 +95,7 @@ function basi_trace_us_hg_overall_chart() {
             },
             //set the starting range. 0-5. 5="All", 4="1yr", etc
             rangeSelector: {
-                selected: 5,
+                selected: 4,
                 allButtonsEnabled: true
             },
             //set general plot options 
@@ -156,7 +156,7 @@ function basi_trace_us_hg_overall_chart() {
         //set data to correct axis
         //set first three set to basi y-axis 
 		for (var i = 0; i < 3; i++) options.series[i].yAxis = 0;
-        for (var i = 3; i < options.series.length; i++) options.series[i].yAxis = i-2;
+        for (var i = 3; i < options.series.length; i++) options.series[i].yAxis = i-2; 
         var chart = new Highcharts.StockChart(options);
     })
         //catch and display any errors 

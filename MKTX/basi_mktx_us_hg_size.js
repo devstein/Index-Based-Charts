@@ -65,7 +65,7 @@ function basi_mktx_us_hg_size_chart() {
             },
             //set the starting range. 0-5. 5="All", 4="1yr", etc
             rangeSelector: {
-                selected: 5,
+                selected: 4,
                 allButtonsEnabled: true
             },
             //set general plot options 
@@ -121,8 +121,8 @@ function basi_mktx_us_hg_size_chart() {
         };
         //names of labels in order of series. make sure they are the same as series header in data file
         var names = ['US HG BASI', 
-                    'Micro: &lt $100k',
-                    'Odd: $100k - $lt $1M',
+                    'Micro: &lt; $100k',
+                    'Odd: $100k - &lt; $1M',
                     'Round: $1M - $5M', 
                     'Block: $5M+'];
        

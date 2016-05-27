@@ -65,7 +65,7 @@ function basi_trace_us_hg_sector_chart() {
             },
             //set the starting range. 0-5. 5="All", 4="1yr", etc
             rangeSelector: {
-                selected: 5,
+                selected: 4,
                 allButtonsEnabled: true
             },
             //set general plot options 
