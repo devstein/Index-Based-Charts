@@ -139,11 +139,11 @@ function basi_mktx_us_hg_overall_chart() {
                         enabled: false
                     },
                     navigator:{
-                        enabled: false
                     }
                 },
                 //make download as csv format correctly
                 csv: {
+                        enabled: false
                     dateFormat: '%Y-%m-%d'
                 }
             },
@@ -153,13 +153,13 @@ function basi_mktx_us_hg_overall_chart() {
             series: []
         };
         //names of labels in order of series. make sure they are the same as series header in data file
-        var names = ['US HG BASI', 'US HG BASI Tight','US HG BASI Wide','VIX', 'CDX.IG'];
+        var names = ['TRACE HG BASI', 'MKTX HG BASI' 'MKTX HG BASI Tight','MKTX HG BASI Wide','VIX', 'CDX.IG'];
         //get csv file, multiply by 100 (divide by .01) and populate chart
         readCSV(options, data, 1.0, names);
         //set data to correct axis
         //set first three set to basi y-axis 
-		for (var i = 0; i < 3; i++) options.series[i].yAxis = 0;
-        for (var i = 3; i < options.series.length; i++) options.series[i].yAxis = i-2; 
+        for (var i = 0; i < 4; i++) options.series[i].yAxis = 0;
+        for (var i = 4; i < options.series.length; i++) options.series[i].yAxis = i-3; 
         var chart = new Highcharts.StockChart(options);
     })
         //catch and display any errors 
