@@ -46,7 +46,8 @@ function basi_trace_us_hg_sector_chart() {
                 //set y-axis to the left side
                 opposite: false,
                 //set background grid line width
-                gridLineWidth: 1
+                gridLineWidth: 1,
+                min: 0
             }],
             //stylize the tooltip 
             tooltip: {

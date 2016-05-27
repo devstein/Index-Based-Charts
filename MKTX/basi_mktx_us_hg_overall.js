@@ -46,9 +46,11 @@ function basi_mktx_us_hg_overall_chart() {
                 //set y-axis to the left side
                 opposite: false,
                 //set background grid line width
-                gridLineWidth: 1
+                gridLineWidth: 1,
+                min: 0
             },  { // Second yAxis
                 gridLineWidth: 1,
+                min: 0,
                 title: {
                     text: 'VIX',
                     style: {
@@ -64,6 +66,7 @@ function basi_mktx_us_hg_overall_chart() {
                 opposite: true
             }, { // Third yAxis
                 gridLineWidth: 1,
+                min: 0,
                 title: {
                     text: 'CDX.IG',
                     style: {

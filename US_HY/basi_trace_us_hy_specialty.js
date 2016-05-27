@@ -1,18 +1,18 @@
 //create basi sector indexes chart
-function basi_trace_us_hg_overall_chart() {
+function basi_trace_us_hg_specialty_chart() {
     //var to catch any issues while getting data 
-    var jqxhr_basi = $.get('../../datafiles/widget_data/US_HG_TRACE_BASI_overall.csv', function (data) {
+    var jqxhr_basi = $.get('../../datafiles/widget_data/US_HG_TRACE_BASI_specialty.csv', function (data) {
         var options = {
             //chart options 
             chart: {
                 //set type of graph, where it renders
                 type: 'line',
-                renderTo: 'basi_trace_us_hg_overall_container'
+                renderTo: 'basi_trace_us_hg_specialty_container'
                 //was basi_overall_container
             },
             //set title of graph
             title: {
-                text: 'TRACE US High Grade Bid-Ask Spread Index (BASI)',
+                text: 'TRACE US High Grade Specialty BASI',
                 style: {
                     color: '#4D759E'
                 },
@@ -48,39 +48,7 @@ function basi_trace_us_hg_overall_chart() {
                 //set background grid line width
                 gridLineWidth: 1,
                 min: 0
-            },  { // Second yAxis
-				gridLineWidth: 1,
-                min: 0,
-				title: {
-					text: 'VIX',
-					style: {
-                        color: '#639741',
-                        fontWeight: 'bold'
-					}
-				},
-				labels: {
-                    formatter: function () {
-                        return Highcharts.numberFormat(this.value, 0);
-					}
-				},
-				opposite: true
-			}, { // Third yAxis
-				gridLineWidth: 1,
-                min: 0,
-				title: {
-					text: 'CDX.IG',
-					style: {
-                        color: '#357895',
-                        fontWeight: 'bold'
-					}
-				},
-				labels: {
-                    formatter: function () {
-                        return Highcharts.numberFormat(this.value, 0);
-					}
-				},
-				opposite: true
-        }],
+            }],
             //stylize the tooltip 
             tooltip: {
                 pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b><br/>',
@@ -120,7 +88,7 @@ function basi_trace_us_hg_overall_chart() {
             },
             //set name of chart downloads
             exporting: {
-                filename: 'MarketAxess_basi_us_hg_trace_overall',
+                filename: 'MarketAxess_basi_us_hg_trace_specialty',
                 //enable download icon
                 enabled: true,
                 //add image to download
@@ -153,18 +121,19 @@ function basi_trace_us_hg_overall_chart() {
             series: []
         };
         //names of labels in order of series. make sure they are the same as series header in data file
-        var names = ['US HG BASI', 'US HG BASI Tight','US HG BASI Wide','VIX', 'CDX.IG'];
+        var names = ['US HG BASI', 
+                    'Large Issue BASI',
+                    'Liquid BASI',
+                    'Long Bond BASI', 
+                    'New Issue BASI'];
         //get csv file, multiply by 100 (divide by .01) and populate chart
         readCSV(options, data, 1.0, names);
-        //set data to correct axis
-        //set first three set to basi y-axis 
-		for (var i = 0; i < 3; i++) options.series[i].yAxis = 0;
-        for (var i = 3; i < options.series.length; i++) options.series[i].yAxis = i-2; 
+
         var chart = new Highcharts.StockChart(options);
     })
         //catch and display any errors 
         .fail(function (jqxhr_basi, exception) {
-           ajaxError(jqxhr_basi, exception, '#basi_trace_us_hg_overall_container');
+           ajaxError(jqxhr_basi, exception, '#basi_trace_us_hg_specialty_container');
     });
 
 }
@@ -179,7 +148,7 @@ function basi_trace_us_hg_overall_chart() {
     });
 
     // $('.chart_container').toggle(false);
-    basi_trace_us_hg_overall_chart();
-    // $('#basi_trace_us_hg_overall_container').toggle(true);
+    basi_trace_us_hg_specialty_chart();
+    // $('#basi_trace_us_hg_specialty_container').toggle(true);
     // auto_assign_toggle_chart_buttons();
 })();
