@@ -1,18 +1,18 @@
 //create basi sector indexes chart
-function basi_trace_us_hy_sector_chart() {
+function basi_mktx_us_hy_size_chart() {
     //var to catch any issues while getting data 
-    var jqxhr_basi = $.get('../../datafiles/widget_data/US_HY_TRACE_BASI_sector.csv', function (data) {
+    var jqxhr_basi = $.get('../../datafiles/widget_data/US_HY_MKTX_BASI_size.csv', function (data) {
         var options = {
             //chart options 
             chart: {
                 //set type of graph, where it renders
                 type: 'line',
-                renderTo: 'basi_trace_us_hy_sector_container'
+                renderTo: 'basi_mktx_us_hy_size_container'
                 //was basi_overall_container
             },
             //set title of graph
             title: {
-                text: 'TRACE US Yield Grade Sector BASI',
+                text: 'MKTX US High Yield BASI by Trade Size',
                 style: {
                     color: '#4D759E'
                 },
@@ -41,14 +41,14 @@ function basi_trace_us_hy_sector_chart() {
                     //give y-axis labels commas for thousands place seperator
                     formatter: function () {
                         return Highcharts.numberFormat(this.value);
-                    }
-                }, 
+                        }
+                    }, 
                 //set y-axis to the left side
                 opposite: false,
                 //set background grid line width
                 gridLineWidth: 1,
                 min: 0
-            }],
+                }],
             //stylize the tooltip 
             tooltip: {
                 pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b><br/>',
@@ -88,12 +88,12 @@ function basi_trace_us_hy_sector_chart() {
             },
             //set name of chart downloads
             exporting: {
-                filename: 'MarketAxess_basi_us_hy_trace_sector',
+                filename: 'MarketAxess_basi_us_hy_mktx_size',
                 //enable download icon
                 enabled: true,
                 //add image to download
-                chartOptions: {
                     chart: {
+                chartOptions: {
                         events: {
                             load: function () {
                                 this.renderer.image('http://www.marketaxess.com/images/marketaxess_logo2.gif', 90, 75, 300, 48).attr({
@@ -121,10 +121,11 @@ function basi_trace_us_hy_sector_chart() {
             series: []
         };
         //names of labels in order of series. make sure they are the same as series header in data file
-        var names = ['US HY BASI',
-                    'Healthcare-Pharmaceuticals',
-                    'Oil-Gas-Exploration-Energy', 
-                    'TMT'];
+        var names = ['MKTX HY BASI', 
+                    'Micro: &lt; $100k',
+                    'Odd: $100k - &lt; $1M',
+                    'Round: $1M - $5M'];
+       
         //get csv file, multiply by 100 (divide by .01) and populate chart
         readCSV(options, data, 1.0, names);
 
@@ -132,7 +133,7 @@ function basi_trace_us_hy_sector_chart() {
     })
         //catch and display any errors 
         .fail(function (jqxhr_basi, exception) {
-           ajaxError(jqxhr_basi, exception, '#basi_trace_us_hy_sector_container');
+           ajaxError(jqxhr_basi, exception, '#basi_mktx_us_hy_size_container');
     });
 
 }
@@ -147,7 +148,7 @@ function basi_trace_us_hy_sector_chart() {
     });
 
     // $('.chart_container').toggle(false);
-    basi_trace_us_hy_sector_chart();
-    // $('#basi_trace_us_hy_sector_container').toggle(true);
+    basi_mktx_us_hy_size_chart();
+    // $('#basi_mktx_us_hy_size_container').toggle(true);
     // auto_assign_toggle_chart_buttons();
 })();

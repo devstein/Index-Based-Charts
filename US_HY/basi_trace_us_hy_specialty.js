@@ -1,18 +1,18 @@
 //create basi sector indexes chart
-function basi_trace_us_hg_specialty_chart() {
+function basi_trace_us_hy_specialty_chart() {
     //var to catch any issues while getting data 
-    var jqxhr_basi = $.get('../../datafiles/widget_data/US_HG_TRACE_BASI_specialty.csv', function (data) {
+    var jqxhr_basi = $.get('../../datafiles/widget_data/US_HY_TRACE_BASI_specialty.csv', function (data) {
         var options = {
             //chart options 
             chart: {
                 //set type of graph, where it renders
                 type: 'line',
-                renderTo: 'basi_trace_us_hg_specialty_container'
+                renderTo: 'basi_trace_us_hy_specialty_container'
                 //was basi_overall_container
             },
             //set title of graph
             title: {
-                text: 'TRACE US High Grade Specialty BASI',
+                text: 'TRACE US High Yield Specialty BASI',
                 style: {
                     color: '#4D759E'
                 },
@@ -88,7 +88,7 @@ function basi_trace_us_hg_specialty_chart() {
             },
             //set name of chart downloads
             exporting: {
-                filename: 'MarketAxess_basi_us_hg_trace_specialty',
+                filename: 'MarketAxess_basi_us_hy_trace_specialty',
                 //enable download icon
                 enabled: true,
                 //add image to download
@@ -121,10 +121,9 @@ function basi_trace_us_hg_specialty_chart() {
             series: []
         };
         //names of labels in order of series. make sure they are the same as series header in data file
-        var names = ['US HG BASI', 
+        var names = ['US HY BASI', 
                     'Large Issue BASI',
                     'Liquid BASI',
-                    'Long Bond BASI', 
                     'New Issue BASI'];
         //get csv file, multiply by 100 (divide by .01) and populate chart
         readCSV(options, data, 1.0, names);
@@ -133,7 +132,7 @@ function basi_trace_us_hg_specialty_chart() {
     })
         //catch and display any errors 
         .fail(function (jqxhr_basi, exception) {
-           ajaxError(jqxhr_basi, exception, '#basi_trace_us_hg_specialty_container');
+           ajaxError(jqxhr_basi, exception, '#basi_trace_us_hy_specialty_container');
     });
 
 }
@@ -148,7 +147,7 @@ function basi_trace_us_hg_specialty_chart() {
     });
 
     // $('.chart_container').toggle(false);
-    basi_trace_us_hg_specialty_chart();
-    // $('#basi_trace_us_hg_specialty_container').toggle(true);
+    basi_trace_us_hy_specialty_chart();
+    // $('#basi_trace_us_hy_specialty_container').toggle(true);
     // auto_assign_toggle_chart_buttons();
 })();
