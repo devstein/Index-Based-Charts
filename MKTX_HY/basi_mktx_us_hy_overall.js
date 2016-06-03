@@ -1,7 +1,7 @@
 //create basi sector indexes chart
 function basi_mktx_us_hy_overall_chart() {
     //var to catch any issues while getting data 
-    var jqxhr_basi = $.get('../../datafiles/widget_data/MKTX_BASI_overall.csv', function (data) {
+    var jqxhr_basi = $.get('../../datafiles/widget_data/US_HY_MKTX_BASI_overall.csv', function (data) {
         var options = {
             //chart options 
             chart: {
